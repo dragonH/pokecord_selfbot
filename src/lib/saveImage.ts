@@ -9,8 +9,8 @@ export default async (
         fs.mkdirSync('../../images');
     }
     const binaryImage = (await axios.get(url, { responseType: 'arraybuffer' })).data;
-    const image = Buffer.from(binaryImage, 'binary').toString('base64')
-    const md5 = crypto.createHash('md5')
+    const image = Buffer.from(binaryImage, 'binary').toString('base64');
+    const md5 = crypto.createHash('md5');
     const imageHash = md5.update(image).digest('hex');
     const pokemonList = JSON.parse(fs.readFileSync('../../pokemon-list.json', 'utf8'));
     if (Object.keys(pokemonList).indexOf(imageHash) === -1) {
