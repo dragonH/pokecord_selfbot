@@ -1,4 +1,0 @@
-module.exports = {
-  url : 'https://discord.com/api/v6/channels/{channelID}/messages',
-  token: '{Token}'
-};
