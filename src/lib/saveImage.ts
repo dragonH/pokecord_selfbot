@@ -16,7 +16,7 @@ export default async (
     if (Object.keys(pokemonList).indexOf(imageHash) === -1) {
         fs.writeFileSync(`./images/${imageHash}.jpg`, binaryImage, 'binary');
         pokemonList[imageHash] = '';
-        fs.writeFileSync('./pokemon-list.json', JSON.stringify(pokemonList));
+        fs.writeFileSync('./pokemon-list.json', JSON.stringify(pokemonList, null, 4));
         console.log('[Message]: New pokemon image saved');
     }
 };
