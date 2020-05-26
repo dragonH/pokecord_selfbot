@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node build/index.js",
-    "sort": "node build/lib/sort-list.js"
+    "sort": "node build/lib/sort-list.js",
+    "check": "node build/lib/check-list.js"
   },
   "keywords": [],
   "author": "",

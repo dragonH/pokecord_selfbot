@@ -3,6 +3,7 @@ import { IConfig, IHeader } from './types';
 import sendMessage from './lib/sendMessage';
 import sleep from './lib/sleep';
 import getLatestMessage from './lib/getLatestMessage';
+import processMessage from './lib/processMessage';
 
 (async () => {
     try {
@@ -18,9 +19,10 @@ import getLatestMessage from './lib/getLatestMessage';
             authorization: config.token,
         };
         while (1) {
-            await sendMessage(headers, config);
+            await sendMessage(headers, config, `${new Date()}`);
             await sleep(900);
-            await getLatestMessage(headers, config);
+            const latestMessage = await getLatestMessage(headers, config);
+            await processMessage(latestMessage);
         }
     } catch (error) {
         console.log(`[Error]: ${error}`);

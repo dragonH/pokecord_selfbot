@@ -4,9 +4,10 @@ import type { IHeader, IConfig } from '../types';
 export default async (
     headers: IHeader,
     config: IConfig,
+    content: string | number,
 ) => {
     const data = {
-        content: new Date(),
+        content,
         tts: false,
     };
     await axios.post(config.url, data, { headers });
